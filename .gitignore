@@ -100,5 +100,12 @@ hs_err_pid*
 
 ### Scala ###
 
+### Eclipse ###
+
+**/target/*
+**/.settings
+**/.project
+**/.classpath
+**/.mvn/*
 
 # End of https://www.gitignore.io/api/java,scala,kotlin,eclipse,clojure,intellij
