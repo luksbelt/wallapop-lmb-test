@@ -17,7 +17,7 @@ mvn verify
 ## Design decisions
 
 ### Rover
-The representation of the robot requested.
+The representation of the robot requested. Is composed of a Map to be able to navigate through it, a Direction to know the current way, a Coordinates to know the current position.
 
 ### Map
 An abstraction to represent the size and bounds of Mars. There is an abstract method validatePosition() that must be implement to define all the restriction of the implemented map. I choose to create this hierarchy to bring the possibility of an easy extension if new restrictions are needed, or is needed to represent different scenarios with, for instance, more dimensions.
@@ -40,8 +40,8 @@ This controller transform the user input into commands recognized by Rover.
 ### Command
 The package ".command" has the needed classes to implement the Command Pattern. There I created the 4 basic moves required for this challenge (Forward, Backward, Rotate left and Rotate right). I decided to implement this pattern because it brings extensibility, and decouples the invoker from the Rover.
 
-
-
+### InitController and InputValidator
+Classes for demonstration purpose.
 
 
 
