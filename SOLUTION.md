@@ -17,3 +17,16 @@ A representation of a 2D position (axis x and y).
 
 ## Exception
 A simple Exception hierarchy to manage the business errors and the messages to print.
+
+## MoveController
+This controller transform the user input into commands recognized by Rover.
+
+## Command
+The package ".command" has the needed classes to implement the Command Pattern. There I created the 4 basic moves required for this challenge (Forward, Backward, Rotate left and Rotate right). I decided to implement this pattern because it brings extensibility, and decouples the invoker from the Rover.
+
+
+
+
+
+
+
