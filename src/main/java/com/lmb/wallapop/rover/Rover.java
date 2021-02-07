@@ -79,7 +79,7 @@ public class Rover {
 			}
 			break;
 		default:
-			return null; // TODO
+			return null;
 		}
 		return nextCoordinates;
 	}

@@ -25,7 +25,7 @@ There are two implementation:
     1. "SingleMap" to represent the behavior of the primary solution.
     2. "ObstaclesMap" to represent the bonus point requirement.
 
-### CardinalDirection
+### Direction
 A representation of the cardinal directions with the feature to calculate the next direction (back, right, left).
 
 ### Coordinates
