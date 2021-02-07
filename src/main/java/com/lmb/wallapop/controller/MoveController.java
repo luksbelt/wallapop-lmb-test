@@ -1,4 +1,4 @@
-package com.lmb.wallapop;
+package com.lmb.wallapop.controller;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -9,6 +9,7 @@ import com.lmb.wallapop.command.MoveBackward;
 import com.lmb.wallapop.command.MoveForward;
 import com.lmb.wallapop.command.RotateLeft;
 import com.lmb.wallapop.command.RotateRight;
+import com.lmb.wallapop.rover.Rover;
 
 public class MoveController {
 
@@ -41,7 +42,7 @@ public class MoveController {
 			commands.get(commandST).execute(); 
 		}
 		else {
-			// TODO throw exception
+			System.out.println("Command not found.");
 		}
 
 	}

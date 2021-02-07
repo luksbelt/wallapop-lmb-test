@@ -1,4 +1,4 @@
-package com.lmb.wallapop;
+package com.lmb.wallapop.rover;
 
 import com.lmb.wallapop.exception.MapException;
 import com.lmb.wallapop.map.Map;
@@ -9,10 +9,11 @@ public class Rover {
 	private Direction direction;
 	private Map map;
 
-	public Rover(Coordinates coordinates, Direction direction, Map map) {
+	public Rover(Coordinates coordinates, Direction direction, Map map) throws MapException {
 		super();
 		this.coordinates = coordinates;
 		this.direction = direction;
+		map.validatePosition(coordinates.getX(), coordinates.getY());
 		this.map = map;
 	}
 

@@ -3,7 +3,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.Test;
 
-import com.lmb.wallapop.Direction;
+import com.lmb.wallapop.rover.Direction;
 
 
 public class DirectionTest {

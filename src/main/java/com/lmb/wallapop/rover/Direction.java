@@ -1,4 +1,4 @@
-package com.lmb.wallapop;
+package com.lmb.wallapop.rover;
 
 public enum Direction {
 

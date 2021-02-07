@@ -8,13 +8,16 @@ import org.junit.jupiter.api.Test;
 import com.lmb.wallapop.exception.MapException;
 import com.lmb.wallapop.map.Map;
 import com.lmb.wallapop.map.SingleMap;
+import com.lmb.wallapop.rover.Coordinates;
+import com.lmb.wallapop.rover.Direction;
+import com.lmb.wallapop.rover.Rover;
 
 public class RoverTest {
 
 	Rover rover;
 
 	@BeforeEach
-	public void init() {
+	public void init() throws MapException {
 		Coordinates coordinates = new Coordinates(0, 0);
 		Map map = new SingleMap(4, 4);
 		rover = new Rover(coordinates, Direction.N, map);

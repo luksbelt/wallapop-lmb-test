@@ -1,7 +1,7 @@
 package com.lmb.wallapop.command;
 
-import com.lmb.wallapop.Rover;
 import com.lmb.wallapop.exception.MapException;
+import com.lmb.wallapop.rover.Rover;
 
 public class MoveBackward implements Command {
 

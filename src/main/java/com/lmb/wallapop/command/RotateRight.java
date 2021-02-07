@@ -1,6 +1,6 @@
 package com.lmb.wallapop.command;
 
-import com.lmb.wallapop.Rover;
+import com.lmb.wallapop.rover.Rover;
 
 public class RotateRight implements Command {
 
