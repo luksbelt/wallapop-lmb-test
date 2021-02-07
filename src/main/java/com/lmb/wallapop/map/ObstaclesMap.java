@@ -9,7 +9,7 @@ public class ObstaclesMap extends Map {
 	int[][] obstacles;
 
 	public ObstaclesMap(int maxX, int maxY, int[][] obstacles) {
-		super(maxY, maxY);
+		super(maxX, maxY);
 		this.obstacles = obstacles;
 	}
 	public int[][] getObstacles() {

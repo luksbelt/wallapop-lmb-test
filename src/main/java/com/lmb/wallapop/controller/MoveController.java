@@ -26,7 +26,7 @@ public class MoveController {
 		commands.put("R", new RotateRight(rover));
 	}
 
-	public void start() throws Exception {
+	public void start() {
 		Scanner reader = new Scanner(System.in);
 		do {
 			System.out.println("Insert command (f = forward, b = backward, l = turn left, r = turn right):");

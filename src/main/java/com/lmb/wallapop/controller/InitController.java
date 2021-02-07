@@ -24,7 +24,7 @@ public class InitController {
 		System.out.println("Insert vertical initial rover position:");
 		int rovery = inputValidator.getIntInput(reader);
 
-		Map map = createMap(reader, sizex, sizey);
+		Map map = createMap(reader, sizex, sizey, roverx, rovery);
 
 		Coordinates coordinates = new Coordinates(roverx, rovery);
 		return new Rover(coordinates, inputValidator.getDirectionInput(reader), map);
@@ -41,7 +41,7 @@ public class InitController {
 		return obstacles;
 	}
 
-	public Map createMap(Scanner reader, int sizex, int sizey) {
+	public Map createMap(Scanner reader, int sizex, int sizey, int roverX, int roverY) {
 		int mapType = 0;
 		do {
 			System.out.println("Choose a Map type:");
@@ -50,13 +50,15 @@ public class InitController {
 			mapType = inputValidator.getIntInput(reader);
 		} while (mapType != 1 && mapType != 2);
 
-		int[][] obstacles = createRandomObstacles(sizex, sizey);
 		Map map = null;
 		switch (mapType) {
 		case 1:
 			map = new SingleMap(sizex - 1, sizey - 1);
 			break;
 		case 2:
+			int[][] obstacles = createRandomObstacles(sizex, sizey);
+			// To be sure the initial position it does't match with an obstacle
+			obstacles[roverX][roverY] = 0;
 			map = new ObstaclesMap(sizex - 1, sizey - 1, obstacles);
 			break;
 		}
