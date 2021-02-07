@@ -27,7 +27,7 @@ public class MoveControllerTest {
 		}
 		obstacles[0][2] = 1;
 		obstacles[0][4] = 1;
-		Map map = new ObstaclesMap(3, 4, obstacles);
+		Map map = new ObstaclesMap(new Coordinates(3, 4), obstacles);
 		rover = new Rover(coordinates, Direction.N, map);
 		controller = new MoveController(rover);
 	}

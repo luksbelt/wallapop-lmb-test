@@ -11,7 +11,7 @@ import com.lmb.wallapop.rover.Rover;
 
 public class InitController {
 
-	private InputValidator inputValidator;
+	private InputValidator inputValidator = new InputValidator();
 
 	public Rover init() throws MapException {
 		Scanner reader = new Scanner(System.in);
@@ -24,9 +24,10 @@ public class InitController {
 		System.out.println("Insert vertical initial rover position:");
 		int rovery = inputValidator.getIntInput(reader);
 
-		Map map = createMap(reader, sizex, sizey, roverx, rovery);
-
+		Coordinates mapCoordinates = new Coordinates(sizex, sizey);
 		Coordinates coordinates = new Coordinates(roverx, rovery);
+		Map map = createMap(reader, mapCoordinates, coordinates);
+
 		return new Rover(coordinates, inputValidator.getDirectionInput(reader), map);
 	}
 
@@ -41,7 +42,7 @@ public class InitController {
 		return obstacles;
 	}
 
-	public Map createMap(Scanner reader, int sizex, int sizey, int roverX, int roverY) {
+	public Map createMap(Scanner reader, Coordinates mapCoordinates, Coordinates roverCoordinates) {
 		int mapType = 0;
 		do {
 			System.out.println("Choose a Map type:");
@@ -53,13 +54,13 @@ public class InitController {
 		Map map = null;
 		switch (mapType) {
 		case 1:
-			map = new SingleMap(sizex - 1, sizey - 1);
+			map = new SingleMap(mapCoordinates);
 			break;
 		case 2:
-			int[][] obstacles = createRandomObstacles(sizex, sizey);
+			int[][] obstacles = createRandomObstacles(mapCoordinates.getX() + 1, mapCoordinates.getY() + 1);
 			// To be sure the initial position it does't match with an obstacle
-			obstacles[roverX][roverY] = 0;
-			map = new ObstaclesMap(sizex - 1, sizey - 1, obstacles);
+			obstacles[roverCoordinates.getX()][roverCoordinates.getY()] = 0;
+			map = new ObstaclesMap(mapCoordinates, obstacles);
 			break;
 		}
 		return map;

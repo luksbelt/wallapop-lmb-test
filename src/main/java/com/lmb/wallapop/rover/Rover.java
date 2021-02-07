@@ -13,7 +13,7 @@ public class Rover {
 		super();
 		this.coordinates = coordinates;
 		this.direction = direction;
-		map.validatePosition(coordinates.getX(), coordinates.getY());
+		map.validatePosition(coordinates);
 		this.map = map;
 	}
 
@@ -35,13 +35,13 @@ public class Rover {
 
 	public void moveForward() throws MapException {
 		Coordinates nextCoordinates = getNextCoordinate(getDirection(), getCoordinates());
-		map.validatePosition(nextCoordinates.getX(), nextCoordinates.getY());
+		map.validatePosition(nextCoordinates);
 		setCoordinates(nextCoordinates);
 	}
 
 	public void moveBackward() throws MapException {
 		Coordinates nextCoordinates = getNextCoordinate(getDirection().back(), getCoordinates());
-		map.validatePosition(nextCoordinates.getX(), nextCoordinates.getY());
+		map.validatePosition(nextCoordinates);
 		setCoordinates(nextCoordinates);
 	}
 
@@ -57,25 +57,25 @@ public class Rover {
 		Coordinates nextCoordinates = new Coordinates(coordinates.getX(), coordinates.getY());
 		switch (current) {
 		case N:
-			int nextY = (coordinates.getY() + 1) % (map.getMaxY() + 1);
+			int nextY = (coordinates.getY() + 1) % (map.getMaxCoordinates().getY() + 1);
 			nextCoordinates.setY(nextY);
 			break;
 		case S:
 			if (coordinates.getY() > 0) {
 				nextCoordinates.setY(coordinates.getY() - 1);
 			} else {
-				nextCoordinates.setY(map.getMaxY());
+				nextCoordinates.setY(map.getMaxCoordinates().getY());
 			}
 			break;
 		case E:
-			int nextX = (coordinates.getX() + 1) % (map.getMaxX() + 1);
+			int nextX = (coordinates.getX() + 1) % (map.getMaxCoordinates().getX() + 1);
 			nextCoordinates.setX(nextX);
 			break;
 		case W:
 			if (coordinates.getX() > 0) {
 				nextCoordinates.setX(coordinates.getX() - 1);
 			} else {
-				nextCoordinates.setX(map.getMaxX());
+				nextCoordinates.setX(map.getMaxCoordinates().getX());
 			}
 			break;
 		default:
