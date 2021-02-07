@@ -23,21 +23,19 @@ public class MapTest {
 	@Test
 	public void testObstacles() {
 		
-		int[][] obstacles = new int[5][5];
-		for (int i = 0; i < 5; i++) {
+		int[][] obstacles = new int[4][5];
+		for (int i = 0; i < 4; i++) {
 			for (int j = 0; j < 5; j++) {
 				obstacles[i][j] = 0;
 			}
 		}
 		obstacles[1][2] = 1;
 		obstacles[3][4] = 1;
-		obstacles[4][4] = 1;
+		obstacles[3][4] = 1;
 		Map map = new ObstaclesMap(4, 5, obstacles);
 		assertDoesNotThrow(() -> map.validatePosition(0, 0));
-		assertDoesNotThrow(() -> map.validatePosition(1, 1));
-		assertThrows(ObstacleException.class, () -> map.validatePosition(1, 2));
 		assertThrows(ObstacleException.class, () -> map.validatePosition(3, 4));
-		assertThrows(ObstacleException.class, () -> map.validatePosition(4, 4));
+		assertThrows(OutOfBoundsException.class, () -> map.validatePosition(5, 5));
 
 	}
 
